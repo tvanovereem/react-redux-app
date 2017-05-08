@@ -5,33 +5,54 @@ import {
   getBossProfile,
 } from '../redux/boss/actions';
 
-const BossList = ({ bosses, setBoss }) =>
-  <div id='boss-list' className='col-md-6'>
+const BossList = ({ bosses, zone }) =>
+  <div id='boss-list' className='col-md-12'>
     <h1>Bosses</h1>
-    <input type="text" />
-    <ul>
-      {bosses.map((b, i) =>
-        <li
-          onClick={setBoss(b.id)}
-          key={b.name}
+    <table className="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Level</th>
+          <th>Health</th>
+          <th>Location</th>
+          <th>Region</th>
+        </tr>
+      </thead>
+      <tbody>
+      {bosses.map((b,z) =>
+        <tr 
+          key={b.id}
         >
-          {b.name}
-        </li>
+          <td
+          key={b.name}
+          >
+            {b.name}
+          </td>
+          <td>
+            {b.description}
+          </td>
+          <td>
+            {b.level}
+          </td>
+          <td>
+            {b.health}
+          </td>
+          <td>
+            {z.name}
+          </td>
+          <td>
+          </td>
+        </tr>
       )}
-    </ul>
+      </tbody>
+    </table>
   </div>;
 
-const mapStateToProps = ({ bosses }) => ({
+const mapStateToProps = ({ bosses, zone }) => ({
   bosses,
+  zone,
 });
 
-const mapDispatchToProps = dispatch => ({
-  setBoss(id) {
-    return () => {
-      dispatch(setCurrentBoss(id));
-      dispatch(getBossProfile(id));
-    };
-  },
-});
 
-export default connect(mapStateToProps, mapDispatchToProps)(BossList);
+export default connect(mapStateToProps)(BossList);

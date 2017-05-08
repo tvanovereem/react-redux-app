@@ -1,11 +1,11 @@
-import { SET_BOSS_ZONE } from './actions';
+import { SET_BOSSES } from './actions';
 
-const initialState = {};
+const initialState = [];
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case SET_BOSS_ZONE:
-      return action.zone;
+    case SET_BOSSES:
+      return action.bosses;
     default:
       return state;
   }
