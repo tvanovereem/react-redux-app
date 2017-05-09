@@ -6,7 +6,7 @@ const App = () =>
   <div className='container'>
     <div className='row'>
       <BossList />
-      <BossProfile/>
+      {/*<BossProfile />*/}
     </div>
   </div>;
 

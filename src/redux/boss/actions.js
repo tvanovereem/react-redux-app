@@ -30,10 +30,10 @@ export function getBossProfile(id) {
       });
 }
 
-export function setBossZone(zoneId) {
+export function setBossZone(zone) {
   return {
     type: SET_BOSS_ZONE,
-    zoneId,
+    zone,
   };
 }
 
@@ -41,7 +41,8 @@ export function getBossZone(id) {
   return dispatch =>
     fetch(`${API_URL_WOW}/zone/${id}${API_KEY}`)
       .then(res => res.json())
-      .then(zoneId =>
-        dispatch(setBossZone(zoneId))
+      .then(zone =>
+        dispatch(setBossZone(zone))
       );
 }
+

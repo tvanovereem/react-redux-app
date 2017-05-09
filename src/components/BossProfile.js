@@ -16,5 +16,5 @@ const mapStateToProps = ({ boss: { profile , zone} }) => ({
   profile,
   zone,
 });
-//{zone.location.name && <p>Region: {zone.location.name}</p>}
+
 export default connect(mapStateToProps)(BossProfile);
