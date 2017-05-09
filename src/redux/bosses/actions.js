@@ -11,7 +11,7 @@ export function getBosses() {
       .then(res => res.bosses)
       .then(bosses => {
         dispatch(setBosses(bosses));
-        dispatch(getBossesZone(6912));
+        //dispatch(getBossesZone(bosses.zoneId));
       });
 }
 
